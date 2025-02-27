@@ -1,0 +1,34 @@
+# ビルド結果
+[Bb]in/
+[Oo]bj/
+
+# Visual Studioのファイル
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ビルドログ
+*.log
+
+# テンポラリファイル
+[Tt]emp/
+
+# NuGetパッケージ
+packages/
+*.nupkg
+
+# Resharperのキャッシュファイル
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# 実行ファイル
+*.exe
+*.dll
+*.pdb
+
+# その他のキャッシュ・ログ
+[Ll]ogs/
+*.cache
