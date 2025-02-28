@@ -26,7 +26,6 @@ Partial Class Form1
         Me.btnUserInfo = New System.Windows.Forms.Button()
         Me.txtID = New System.Windows.Forms.TextBox()
         Me.lblID = New System.Windows.Forms.Label()
-        Me.lblCurrentDb = New System.Windows.Forms.Label()
         Me.btnSwitchDb = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
@@ -67,23 +66,13 @@ Partial Class Form1
         Me.lblID.TabIndex = 3
         Me.lblID.Text = "ID"
         '
-        'lblCurrentDb
-        '
-        Me.lblCurrentDb.AutoSize = True
-        Me.lblCurrentDb.Font = New System.Drawing.Font("MS UI Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.lblCurrentDb.Location = New System.Drawing.Point(275, 301)
-        Me.lblCurrentDb.Name = "lblCurrentDb"
-        Me.lblCurrentDb.Size = New System.Drawing.Size(31, 21)
-        Me.lblCurrentDb.TabIndex = 7
-        Me.lblCurrentDb.Text = "ID"
-        '
         'btnSwitchDb
         '
         Me.btnSwitchDb.Font = New System.Drawing.Font("MS UI Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.btnSwitchDb.Location = New System.Drawing.Point(114, 290)
+        Me.btnSwitchDb.Location = New System.Drawing.Point(114, 310)
         Me.btnSwitchDb.Name = "btnSwitchDb"
-        Me.btnSwitchDb.Size = New System.Drawing.Size(134, 43)
-        Me.btnSwitchDb.TabIndex = 6
+        Me.btnSwitchDb.Size = New System.Drawing.Size(147, 43)
+        Me.btnSwitchDb.TabIndex = 4
         Me.btnSwitchDb.Text = "DB切替"
         Me.btnSwitchDb.UseVisualStyleBackColor = True
         '
@@ -92,7 +81,6 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.lblCurrentDb)
         Me.Controls.Add(Me.btnSwitchDb)
         Me.Controls.Add(Me.lblID)
         Me.Controls.Add(Me.txtID)
@@ -109,6 +97,5 @@ Partial Class Form1
     Friend WithEvents btnUserInfo As Button
     Friend WithEvents txtID As TextBox
     Friend WithEvents lblID As Label
-    Friend WithEvents lblCurrentDb As Label
     Friend WithEvents btnSwitchDb As Button
 End Class

@@ -26,8 +26,8 @@ Partial Class Form1
         Me.btnUserInfo = New System.Windows.Forms.Button()
         Me.txtID = New System.Windows.Forms.TextBox()
         Me.lblID = New System.Windows.Forms.Label()
-        Me.lblCurrentDb = New System.Windows.Forms.Label()
         Me.btnSwitchDb = New System.Windows.Forms.Button()
+        Me.lblCurrentDb = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'txtName
@@ -53,7 +53,7 @@ Partial Class Form1
         Me.txtID.Font = New System.Drawing.Font("MS UI Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.txtID.Location = New System.Drawing.Point(151, 42)
         Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(189, 28)
+        Me.txtID.Size = New System.Drawing.Size(97, 28)
         Me.txtID.TabIndex = 2
         Me.txtID.Text = "1"
         '
@@ -67,25 +67,25 @@ Partial Class Form1
         Me.lblID.TabIndex = 3
         Me.lblID.Text = "ID"
         '
+        'btnSwitchDb
+        '
+        Me.btnSwitchDb.Font = New System.Drawing.Font("MS UI Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.btnSwitchDb.Location = New System.Drawing.Point(114, 332)
+        Me.btnSwitchDb.Name = "btnSwitchDb"
+        Me.btnSwitchDb.Size = New System.Drawing.Size(134, 43)
+        Me.btnSwitchDb.TabIndex = 4
+        Me.btnSwitchDb.Text = "DB切替"
+        Me.btnSwitchDb.UseVisualStyleBackColor = True
+        '
         'lblCurrentDb
         '
         Me.lblCurrentDb.AutoSize = True
         Me.lblCurrentDb.Font = New System.Drawing.Font("MS UI Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.lblCurrentDb.Location = New System.Drawing.Point(275, 301)
+        Me.lblCurrentDb.Location = New System.Drawing.Point(275, 343)
         Me.lblCurrentDb.Name = "lblCurrentDb"
         Me.lblCurrentDb.Size = New System.Drawing.Size(31, 21)
-        Me.lblCurrentDb.TabIndex = 7
+        Me.lblCurrentDb.TabIndex = 5
         Me.lblCurrentDb.Text = "ID"
-        '
-        'btnSwitchDb
-        '
-        Me.btnSwitchDb.Font = New System.Drawing.Font("MS UI Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.btnSwitchDb.Location = New System.Drawing.Point(114, 290)
-        Me.btnSwitchDb.Name = "btnSwitchDb"
-        Me.btnSwitchDb.Size = New System.Drawing.Size(134, 43)
-        Me.btnSwitchDb.TabIndex = 6
-        Me.btnSwitchDb.Text = "DB切替"
-        Me.btnSwitchDb.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -109,6 +109,6 @@ Partial Class Form1
     Friend WithEvents btnUserInfo As Button
     Friend WithEvents txtID As TextBox
     Friend WithEvents lblID As Label
-    Friend WithEvents lblCurrentDb As Label
     Friend WithEvents btnSwitchDb As Button
+    Friend WithEvents lblCurrentDb As Label
 End Class

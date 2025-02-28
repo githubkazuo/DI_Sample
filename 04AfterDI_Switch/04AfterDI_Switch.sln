@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35818.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "04AfterDI_Switch", "04AfterDI_Switch.vbproj", "{D1BF60C4-E142-4090-B3BC-33DA8B69AE69}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Test02AfterDI_Container", "Test02AfterDI_Container\Test02AfterDI_Container.vbproj", "{01E4A0B6-E16A-49C7-A35D-88E5DA69F8F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1BF60C4-E142-4090-B3BC-33DA8B69AE69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1BF60C4-E142-4090-B3BC-33DA8B69AE69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1BF60C4-E142-4090-B3BC-33DA8B69AE69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1BF60C4-E142-4090-B3BC-33DA8B69AE69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01E4A0B6-E16A-49C7-A35D-88E5DA69F8F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01E4A0B6-E16A-49C7-A35D-88E5DA69F8F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01E4A0B6-E16A-49C7-A35D-88E5DA69F8F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01E4A0B6-E16A-49C7-A35D-88E5DA69F8F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4D52822-E544-43F2-91B0-1D7F415CE6C3}
+	EndGlobalSection
+EndGlobal
