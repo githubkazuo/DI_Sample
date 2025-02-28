@@ -112,10 +112,10 @@ Public Class DatabaseFactory
     Private Shared dbType As String = "SQL" '通常は環境変数や、設定ファイルで定義
 
     Public Shared Function GetUserDataAccess() As IUserDataAccess
-        If dbType = "Oracle" Then
-            Return New OracleDataAccessUser()
-        ElseIf dbType = "SQL" Then
+        If dbType = "SQL" Then
             Return New SqlDataAccessUser()
+        ElseIf dbType = "Oracle" Then
+            Return New OracleDataAccessUser()
         Else
             Return New Exception("データベースの種類が不正です")
         End If
