@@ -5,9 +5,9 @@ Public Class Form1
     Private Sub btnUserInfo_Click(sender As Object, e As EventArgs) Handles btnUserInfo.Click
         ' ファクトリークラスを使って現在のデータベース実装を取得
         Dim dataAccess = DatabaseFactory.GetUserDataAccess()
-        Dim userService = New UserService()
+        Dim userService = New UserService(dataAccess)
 
-        txtName.Text = userService.GetUserNameById(CInt(txtID.Text), dataAccess)
+        txtName.Text = userService.GetUserNameById(CInt(txtID.Text))
     End Sub
 
     Private Sub btnSwitchDb_Click(sender As Object, e As EventArgs) Handles btnSwitchDb.Click
@@ -35,12 +35,20 @@ End Interface
 ' DIを使用したユーザ情報の取得といろんな処理のクラス
 Public Class UserService
 
-    Public Function GetUserNameById(id As Integer, dataAccess As IUserDataAccess) As String
-        '外部から受け取ったデータアクセス部品（依存性）でデータ取得
-        dataAccess.GetUser(id)
+    ' データアクセス部品
+    Private ReadOnly _dataAccess As IUserDataAccess
 
-        Dim FirstName = dataAccess.Name1
-        Dim LastName = dataAccess.Name2
+    ' コンストラクタで依存性を注入
+    Public Sub New(dataAccess As IUserDataAccess)
+        _dataAccess = dataAccess
+    End Sub
+
+    Public Function GetUserNameById(id As Integer) As String
+        '外部から受け取ったデータアクセス部品（依存性）でデータ取得
+        _dataAccess.GetUser(id)
+
+        Dim FirstName = _dataAccess.Name1
+        Dim LastName = _dataAccess.Name2
 
         'ユーザ名が空の場合、メッセージを返す
         If String.IsNullOrEmpty(FirstName) AndAlso String.IsNullOrEmpty(LastName) Then

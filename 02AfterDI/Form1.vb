@@ -4,10 +4,10 @@
 
         ' 依存性の注入（SQL Serverのユーザ情報を取得するクラスを
         Dim dataAccess = New SqlDataAccessUser()
-        Dim userService = New UserService()
+        Dim userService = New UserService(dataAccess)
 
-        userService.GetUserNameById(CInt(txtID.Text), dataAccess)
-        txtName.Text = userService.GetUserNameById(CInt(txtID.Text), dataAccess)
+        userService.GetUserNameById(CInt(txtID.Text))
+        txtName.Text = userService.GetUserNameById(CInt(txtID.Text))
     End Sub
 End Class
 
@@ -26,12 +26,20 @@ End Interface
 ' DIを使用したユーザ情報の取得といろんな処理のクラス
 Public Class UserService
 
-    Public Function GetUserNameById(id As Integer, dataAccess As IUserDataAccess) As String
-        '外部から受け取ったデータアクセス部品（依存性）でデータ取得
-        dataAccess.GetUser(id)
+    ' データアクセス部品
+    Private ReadOnly _dataAccess As IUserDataAccess
 
-        Dim FirstName = dataAccess.Name1
-        Dim LastName = dataAccess.Name2
+    ' コンストラクタで依存性を注入
+    Public Sub New(dataAccess As IUserDataAccess)
+        _dataAccess = dataAccess
+    End Sub
+
+    Public Function GetUserNameById(id As Integer) As String
+        '外部から受け取ったデータアクセス部品（依存性）でデータ取得
+        _dataAccess.GetUser(id)
+
+        Dim FirstName = _dataAccess.Name1
+        Dim LastName = _dataAccess.Name2
 
         'ユーザ名が空の場合、メッセージを返す
         If String.IsNullOrEmpty(FirstName) AndAlso String.IsNullOrEmpty(LastName) Then

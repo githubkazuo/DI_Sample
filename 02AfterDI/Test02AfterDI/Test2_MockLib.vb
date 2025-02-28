@@ -15,7 +15,7 @@ Namespace TestBeforeDI_MockLib
         Public Sub Setup()
             ' Moqを使用してモックを作成
             _mockDataAccess = New Mock(Of IUserDataAccess)()
-            _userService = New UserService()
+            _userService = New UserService(_mockDataAccess.Object)
         End Sub
 
         <TestMethod>
@@ -30,7 +30,7 @@ Namespace TestBeforeDI_MockLib
             _mockDataAccess.SetupGet(Function(m) m.Name2).Returns("山田")
 
             ' Act
-            Dim actualName = _userService.GetUserNameById(1, _mockDataAccess.Object)
+            Dim actualName = _userService.GetUserNameById(1)
 
             ' Assert
             Assert.AreEqual(expectedName, actualName)
@@ -51,7 +51,7 @@ Namespace TestBeforeDI_MockLib
             _mockDataAccess.SetupGet(Function(m) m.Name2).Returns("")
 
             ' Act
-            Dim actualName = _userService.GetUserNameById(999, _mockDataAccess.Object)
+            Dim actualName = _userService.GetUserNameById(999)
 
             ' Assert
             Assert.AreEqual(expectedName, actualName)

@@ -12,7 +12,7 @@ Namespace TestBeforeDI
         Public Sub Setup()
             ' テスト用のモックを使用
             _mockDataAccess = New MockUserDataAccess()
-            _userService = New UserService()
+            _userService = New UserService(_mockDataAccess)
         End Sub
 
         <TestMethod>
@@ -21,7 +21,7 @@ Namespace TestBeforeDI
             Dim expectedName = "山田　太郎 様"
 
             ' Act
-            Dim actualName = _userService.GetUserNameById(1, _mockDataAccess)
+            Dim actualName = _userService.GetUserNameById(1)
 
             ' Assert
             Assert.AreEqual(expectedName, actualName)
@@ -33,7 +33,7 @@ Namespace TestBeforeDI
             Dim expectedName = "ユーザ情報が取得できません"
 
             ' Act
-            Dim actualName = _userService.GetUserNameById(999, _mockDataAccess)
+            Dim actualName = _userService.GetUserNameById(999)
 
             ' Assert
             Assert.AreEqual(expectedName, actualName)

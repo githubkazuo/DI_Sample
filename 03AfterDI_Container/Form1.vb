@@ -31,6 +31,59 @@ End Class
 '＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
 
 
+' DIを使用したユーザ情報の取得といろんな処理のクラス（コンストラクタで依存性を受け取るように修正）
+Public Class UserService
+    Private ReadOnly _userDataAccess As IUserDataAccess
+    Private ReadOnly _familyDataAccess As IFamilyDataAccess
+    Private ReadOnly _departmentDataAccess As IDepartmentDataAccess
+
+    ' コンストラクタで依存性を受け取る
+    Public Sub New(userDataAccess As IUserDataAccess,
+                  familyDataAccess As IFamilyDataAccess,
+                  departmentDataAccess As IDepartmentDataAccess)
+        _userDataAccess = userDataAccess
+        _familyDataAccess = familyDataAccess
+        _departmentDataAccess = departmentDataAccess
+    End Sub
+
+    Public Function GetUserNameById(id As Integer) As String
+        ' 内部プロパティの依存性を利用
+        _userDataAccess.GetUser(id)
+
+        Dim FirstName = _userDataAccess.Name1
+        Dim LastName = _userDataAccess.Name2
+
+        'ユーザ名が空の場合、メッセージを返す
+        If String.IsNullOrEmpty(FirstName) AndAlso String.IsNullOrEmpty(LastName) Then
+            Return "ユーザ情報が取得できません"
+        Else
+            ' ユーザ名を編集して返す
+            Return String.Format("{0}　{1} 様", LastName, FirstName)
+        End If
+    End Function
+
+    ' 家族情報を取得するメソッド
+    Public Function GetFamilyInfo(userId As Integer) As String
+        Dim familyCount = _familyDataAccess.GetFamilyCount(userId)
+        If familyCount > 0 Then
+            Return String.Format("家族は {0} 名です", familyCount)
+        Else
+            Return "家族情報はありません"
+        End If
+    End Function
+
+    ' 部署情報を取得するメソッド
+    Public Function GetDepartmentInfo(userId As Integer) As String
+        Dim deptName = _departmentDataAccess.GetDepartmentName(userId)
+        Dim deptCode = _departmentDataAccess.GetDepartmentCode(userId)
+
+        If String.IsNullOrEmpty(deptName) Then
+            Return "部署情報はありません"
+        Else
+            Return String.Format("部署: {0}（{1}）", deptName, deptCode)
+        End If
+    End Function
+End Class
 
 
 ' DIコンテナの設定クラス
@@ -101,59 +154,6 @@ Public Interface IDepartmentDataAccess
     Function GetDepartmentCode(userId As Integer) As String
 End Interface
 
-' DIを使用したユーザ情報の取得といろんな処理のクラス（コンストラクタで依存性を受け取るように修正）
-Public Class UserService
-    Private ReadOnly _userDataAccess As IUserDataAccess
-    Private ReadOnly _familyDataAccess As IFamilyDataAccess
-    Private ReadOnly _departmentDataAccess As IDepartmentDataAccess
-
-    ' コンストラクタで依存性を受け取る
-    Public Sub New(userDataAccess As IUserDataAccess,
-                  familyDataAccess As IFamilyDataAccess,
-                  departmentDataAccess As IDepartmentDataAccess)
-        _userDataAccess = userDataAccess
-        _familyDataAccess = familyDataAccess
-        _departmentDataAccess = departmentDataAccess
-    End Sub
-
-    Public Function GetUserNameById(id As Integer) As String
-        ' 内部プロパティの依存性を利用
-        _userDataAccess.GetUser(id)
-
-        Dim FirstName = _userDataAccess.Name1
-        Dim LastName = _userDataAccess.Name2
-
-        'ユーザ名が空の場合、メッセージを返す
-        If String.IsNullOrEmpty(FirstName) AndAlso String.IsNullOrEmpty(LastName) Then
-            Return "ユーザ情報が取得できません"
-        Else
-            ' ユーザ名を編集して返す
-            Return String.Format("{0}　{1} 様", LastName, FirstName)
-        End If
-    End Function
-
-    ' 家族情報を取得するメソッド
-    Public Function GetFamilyInfo(userId As Integer) As String
-        Dim familyCount = _familyDataAccess.GetFamilyCount(userId)
-        If familyCount > 0 Then
-            Return String.Format("家族は {0} 名です", familyCount)
-        Else
-            Return "家族情報はありません"
-        End If
-    End Function
-
-    ' 部署情報を取得するメソッド
-    Public Function GetDepartmentInfo(userId As Integer) As String
-        Dim deptName = _departmentDataAccess.GetDepartmentName(userId)
-        Dim deptCode = _departmentDataAccess.GetDepartmentCode(userId)
-
-        If String.IsNullOrEmpty(deptName) Then
-            Return "部署情報はありません"
-        Else
-            Return String.Format("部署: {0}（{1}）", deptName, deptCode)
-        End If
-    End Function
-End Class
 
 ' 仮想のSQL Serverのユーザ情報に関するデータアクセスクラス
 Public Class SqlDataAccessUser
