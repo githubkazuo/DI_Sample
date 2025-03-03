@@ -1,4 +1,4 @@
-﻿Imports _03AfterDI_Container
+﻿Imports _04AfterDI_Container
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports Moq
 Imports Unity
@@ -11,20 +11,20 @@ Namespace TestBeforeDI_MockLib
     Public Class UserServiceTests
         Private _userService As UserService
         Private _mockUserAccess As Mock(Of IUserDataAccess)
-        Private _mockOrderAccess As Mock(Of IOrderDataAccess)
+        Private _mockFamilyAccess As Mock(Of IFamilyDataAccess)
         Private _mockDepartmentAccess As Mock(Of IDepartmentDataAccess)
 
         <TestInitialize>
         Public Sub Setup()
             ' Moqを使用してモックを作成
             _mockUserAccess = New Mock(Of IUserDataAccess)()
-            _mockOrderAccess = New Mock(Of IOrderDataAccess)()
+            _mockFamilyAccess = New Mock(Of IFamilyDataAccess)()
             _mockDepartmentAccess = New Mock(Of IDepartmentDataAccess)()
 
             ' テスト用のDIコンテナ設定
             Dim container = New UnityContainer()
             container.RegisterInstance(Of IUserDataAccess)(_mockUserAccess.Object)
-            container.RegisterInstance(Of IOrderDataAccess)(_mockOrderAccess.Object)
+            container.RegisterInstance(Of IFamilyDataAccess)(_mockFamilyAccess.Object)
             container.RegisterInstance(Of IDepartmentDataAccess)(_mockDepartmentAccess.Object)
 
             ' DIコンテナからUserServiceを取得
