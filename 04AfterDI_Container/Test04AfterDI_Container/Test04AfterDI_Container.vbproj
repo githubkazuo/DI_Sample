@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\04AfterDI_Switch.vbproj" />
+    <ProjectReference Include="..\04AfterDI_Container.vbproj" />
   </ItemGroup>
 
   <ItemGroup>

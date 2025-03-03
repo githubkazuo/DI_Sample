@@ -88,6 +88,7 @@ End Class
 
 ' DIコンテナの設定クラス
 Public Class ContainerConfig
+
     Private Shared _container As IUnityContainer
 
     Public Shared Function GetConfiguredContainer() As IUnityContainer

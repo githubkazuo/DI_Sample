@@ -14,14 +14,6 @@ End Class
 '＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
 
 
-' ユーザーデータアクセスのインターフェース
-Public Interface IUserDataAccess
-    Property UserId As Integer
-    Property Name1 As String
-    Property Name2 As String
-    Sub GetUser(id As Integer)
-End Interface
-
 
 ' DIを使用したユーザ情報の取得といろんな処理のクラス
 Public Class UserService
@@ -51,6 +43,15 @@ Public Class UserService
     End Function
 
 End Class
+
+
+' ユーザーデータアクセスのインターフェース
+Public Interface IUserDataAccess
+    Property UserId As Integer
+    Property Name1 As String
+    Property Name2 As String
+    Sub GetUser(id As Integer)
+End Interface
 
 
 ' 仮想のSQL Serverのユーザ情報に関するデータアクセスクラス（依存性に該当）
