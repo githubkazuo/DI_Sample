@@ -14,7 +14,7 @@ End Class
 Public Class UserService
 
     Public Function GetUserNameById(id As Integer) As String
-        ' データアクセス部品（依存性）を直接newしている
+        'データアクセス部品（依存性）を直接newしている
         Dim _sqlDataAccess As New SqlDataAccessUser()
         _sqlDataAccess.GetUser(id)
 

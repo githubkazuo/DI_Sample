@@ -5,8 +5,6 @@
         ' 依存性の注入（SQL Serverのユーザ情報を取得するクラスを
         Dim dataAccess = New SqlDataAccessUser()
         Dim userService = New UserService(dataAccess)
-
-        userService.GetUserNameById(CInt(txtID.Text))
         txtName.Text = userService.GetUserNameById(CInt(txtID.Text))
     End Sub
 End Class
