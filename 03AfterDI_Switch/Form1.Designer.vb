@@ -70,7 +70,7 @@ Partial Class Form1
         'btnSwitchDb
         '
         Me.btnSwitchDb.Font = New System.Drawing.Font("MS UI Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.btnSwitchDb.Location = New System.Drawing.Point(114, 332)
+        Me.btnSwitchDb.Location = New System.Drawing.Point(114, 254)
         Me.btnSwitchDb.Name = "btnSwitchDb"
         Me.btnSwitchDb.Size = New System.Drawing.Size(134, 43)
         Me.btnSwitchDb.TabIndex = 4
@@ -81,7 +81,7 @@ Partial Class Form1
         '
         Me.lblCurrentDb.AutoSize = True
         Me.lblCurrentDb.Font = New System.Drawing.Font("MS UI Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.lblCurrentDb.Location = New System.Drawing.Point(275, 343)
+        Me.lblCurrentDb.Location = New System.Drawing.Point(275, 265)
         Me.lblCurrentDb.Name = "lblCurrentDb"
         Me.lblCurrentDb.Size = New System.Drawing.Size(31, 21)
         Me.lblCurrentDb.TabIndex = 5
@@ -91,7 +91,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(619, 348)
         Me.Controls.Add(Me.lblCurrentDb)
         Me.Controls.Add(Me.btnSwitchDb)
         Me.Controls.Add(Me.lblID)

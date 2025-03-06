@@ -21,7 +21,7 @@ Public Class UserService
     ' データアクセス部品
     Private ReadOnly _dataAccess As IUserDataAccess
 
-    ' コンストラクタで依存性を注入
+    ' コンストラクタで依存性を注入（インターフェースで受ける）
     Public Sub New(dataAccess As IUserDataAccess)
         _dataAccess = dataAccess
     End Sub

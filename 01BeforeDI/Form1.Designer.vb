@@ -69,7 +69,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(622, 288)
         Me.Controls.Add(Me.lblID)
         Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.btnUserInfo)
